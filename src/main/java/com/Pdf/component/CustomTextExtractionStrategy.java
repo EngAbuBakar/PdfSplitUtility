@@ -4,6 +4,7 @@ import com.itextpdf.kernel.pdf.canvas.parser.listener.LocationTextExtractionStra
 import com.itextpdf.kernel.pdf.canvas.parser.data.TextRenderInfo;
 import com.itextpdf.kernel.pdf.canvas.parser.EventType;
 import com.itextpdf.kernel.pdf.canvas.parser.data.IEventData;
+import com.itextpdf.kernel.geom.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,13 +40,13 @@ public class CustomTextExtractionStrategy extends LocationTextExtractionStrategy
         super.eventOccurred(data, type);
         if (data instanceof TextRenderInfo) {
             TextRenderInfo renderInfo = (TextRenderInfo) data;
-            com.itextpdf.kernel.geom.Rectangle rect = renderInfo.getBaseline().getBoundingRectangle();
+            Rectangle rect = renderInfo.getBaseline().getBoundingRectangle();
             rectangles.add(rect);
             // Additional processing can be done here if needed
         }
     }
 
-    public List<com.itextpdf.kernel.geom.Rectangle> getRectangles() {
+    public List<Rectangle> getRectangles() {
         return rectangles;
     }
 }
