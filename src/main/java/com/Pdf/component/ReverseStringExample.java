@@ -3,7 +3,7 @@ package com.Pdf.component;
 public class ReverseStringExample {
 
     public static void main(String[] args) {
-        String originalString = "dream";
+        String originalString = "dream big";
 
         String reverseString = "";
 
